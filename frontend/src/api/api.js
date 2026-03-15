@@ -1,4 +1,5 @@
-const API_BASE = "http://127.0.0.1:5001"
+// Use the VITE_API_BASE_URL environment variable for production, or default to localhost for development
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:5001"
 
 export async function login(email, password) {
   const res = await fetch(`${API_BASE}/login`, {
