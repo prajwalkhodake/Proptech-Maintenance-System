@@ -1,0 +1,344 @@
+/* Main Layout Wrapper */
+.layoutWrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+/* ===== DESKTOP SIDEBAR ===== */
+.sidebar {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 260px;
+  background: linear-gradient(to bottom, #0f172a, #1e3a8a); /* Dark slate to deep blue */
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: flex;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Inherit to SVG */
+}
+
+.logoText {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: -0.025em;
+}
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: left;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: all 0.2s;
+  background-color: transparent;
+  color: var(--sidebar-text);
+  font-weight: 400;
+  border-left: 3px solid transparent;
+}
+
+.navItem:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--sidebar-active);
+}
+
+.navItemActive {
+  background-color: var(--sidebar-hover);
+  color: var(--sidebar-active);
+  font-weight: 600;
+  border-left-color: var(--primary-light);
+}
+
+.navIcon {
+  font-size: 18px;
+}
+
+/* User Profile Section */
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background-color: var(--sidebar-hover);
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  background: var(--gradient-primary);
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: var(--sidebar-text);
+}
+
+.signOutBtn {
+  width: 100%;
+  font-size: 13px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ===== MOBILE HEADER ===== */
+.mobileHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+@media (min-width: 768px) {
+  .mobileHeader {
+    display: none;
+  }
+}
+
+.mobileHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileLogoArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileLogoIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.mobileLogoText {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  background: var(--gradient-primary);
+}
+
+.menuToggleBtn {
+  color: white;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.mobileDropdown {
+  background: linear-gradient(to bottom, #0f172a, #1e3a8a); /* Match sidebar */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 16px;
+}
+
+.mobileNavItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--sidebar-text);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobileNavItemActive {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: white;
+}
+
+.mobileDivider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 8px 0;
+}
+
+.mobileSignOutBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  color: #f87171;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+}
+
+/* ===== MAIN CONTENT ===== */
+.mainContent {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+}
+
+.mobileTopSpacing {
+  height: 56px;
+}
+
+@media (min-width: 768px) {
+  .mobileTopSpacing {
+    display: none;
+  }
+}
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== MOBILE BOTTOM NAV ===== */
+.mobileBottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: linear-gradient(to right, #0f172a, #1e3a8a);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .mobileBottomNav {
+    display: none;
+  }
+}
+
+.bottomNavItems {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottomNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  padding: 4px 12px;
+  transition: all 0.2s;
+  color: var(--text-muted);
+}
+
+.bottomNavItemActive {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.bottomNavIcon {
+  font-size: 20px;
+}
+
+.mobileBottomSpacing {
+  height: 72px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .mobileBottomSpacing {
+    display: none;
+  }
+}

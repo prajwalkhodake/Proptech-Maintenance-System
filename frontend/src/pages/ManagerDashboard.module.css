@@ -1,0 +1,283 @@
+/* Dashboard Base Layout */
+.dashboardHeader {
+  margin-bottom: 2rem;
+}
+
+.greetingText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.subtitleText {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 0;
+}
+
+/* Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.statIcon {
+  font-size: 22px;
+}
+
+.statValue {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Request Section Header */
+.requestHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filterGroup {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterBtnActive {
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+}
+
+.filterBtnInactive {
+  background-color: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--surface-border);
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--surface-border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.emptyTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.emptyDesc {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Requests Grid */
+.requestsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.requestCard {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.reqCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.reqTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.reqMeta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.reqDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.badgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* Assigned Technician Box */
+.assignedTechBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 1rem;
+  background-color: var(--primary-50);
+  border: 1px solid var(--primary-100);
+}
+
+.techAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background: var(--gradient-primary);
+}
+
+.techName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+.techRole {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Assign Selection Area */
+.assignTechArea {
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-hover);
+  border: 1px solid var(--surface-border);
+}
+
+.assignLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.assignControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.techSelect {
+  flex: 1;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  background-color: white;
+  color: var(--text-primary);
+}
+
+.assignBtn {
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.assignBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Issue Image */
+.reqImage {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
+}

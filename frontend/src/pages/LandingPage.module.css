@@ -1,0 +1,481 @@
+/* ===== LANDING PAGE ===== */
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes orbPulse {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Full-Screen Container --- */
+.landingContainer {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- Background Image --- */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* --- Dark Gradient Overlay --- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(15, 23, 42, 0.75) 0%,
+      rgba(15, 23, 42, 0.60) 40%,
+      rgba(15, 23, 42, 0.80) 70%,
+      rgba(15, 23, 42, 0.95) 100%);
+}
+
+/* --- Decorative Orbs --- */
+.orbTopRight {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  top: -10%;
+  right: -10%;
+  z-index: 2;
+  filter: blur(100px);
+  animation: orbPulse 6s ease-in-out infinite;
+}
+
+.orbBottomLeft {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  bottom: -5%;
+  left: -8%;
+  z-index: 2;
+  filter: blur(80px);
+  animation: orbPulse 8s ease-in-out infinite 2s;
+}
+
+.orbCenter {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  filter: blur(120px);
+  animation: orbPulse 10s ease-in-out infinite 4s;
+}
+
+/* --- Main Content Area --- */
+.content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+/* --- Logo Badge --- */
+.logoBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out both;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Will be inherited by the SVG */
+}
+
+.logoBadgeText {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- Heading --- */
+.heading {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 1s ease-out both;
+
+  /* The actual white text color is set below due to background-clip */
+}
+
+.headingWrapper {
+  display: inline-block;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 0.45) 50%,     /* The "running light" part - dip in opacity */
+    rgba(255, 255, 255, 1) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.headingAccent {
+  color: inherit;
+}
+
+/* --- Tagline --- */
+.tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(203, 213, 225, 0.9);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out both;
+}
+
+/* --- Buttons Row --- */
+.buttonsRow {
+  display: flex;
+  gap: 1.25rem;
+  animation: fadeInUp 1s ease-out both;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 14px;
+}
+
+.btnPrimary:hover::before {
+  opacity: 1;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5);
+}
+
+.btnPrimary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btnPrimary svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnOutline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Stats Row --- */
+.statsRow {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  animation: fadeInUp 1s ease-out both;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(148, 163, 184, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* --- Footer --- */
+.footer {
+  position: relative;
+  z-index: 10;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: fadeInUp 1s ease-out both;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(148, 163, 184, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.footerLeft svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+.footerEmail {
+  color: rgba(203, 213, 225, 0.9);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerEmail:hover {
+  color: #60a5fa;
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(148, 163, 184, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.linkedinLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(203, 213, 225, 0.8);
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.linkedinLink:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(10, 102, 194, 0.4);
+}
+
+.linkedinLink svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem 1.25rem;
+  }
+
+  .heading {
+    letter-spacing: -1px;
+  }
+
+  .buttonsRow {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .statsRow {
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .statNumber {
+    font-size: 22px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .orbTopRight {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbBottomLeft {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbCenter {
+    display: none;
+  }
+}
